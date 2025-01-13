@@ -54,7 +54,7 @@ Source0:	%{name}-%{tde_version}%{?preversion:~%{preversion}}.tar.gz
 
 BuildRequires:	libtqt3-mt-devel >= 3.5.0
 BuildRequires:	tqt3-dev-tools >= 3.5.0
-BuildRequires:	cmake-trinity >= 14.1.3
+BuildRequires:	trinity-tde-cmake >= 14.1.3
 
 BuildRequires:	gcc-c++
 
@@ -108,7 +108,7 @@ Provides:	libtqt4-devel = %{?epoch:%{epoch}:}%{version}-%{release}
 
 Requires:	%{libtqt4} = %{?epoch:%{epoch}:}%{version}-%{release}
 Requires:	tqt3-dev-tools >= 3.5.0
-Requires:	trinity-tde-cmake >= %{version}-%{release}
+Requires:	cmake-trinity >= %{version}-%{release}
 
 Obsoletes:	trinity-tqtinterface-devel < %{?epoch:%{epoch}:}%{version}-%{release}
 Provides:	trinity-tqtinterface-devel = %{?epoch:%{epoch}:}%{version}-%{release}
