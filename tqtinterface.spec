@@ -145,10 +145,8 @@ although some code has been added for useful functions that are no longer part o
 %build
 unset QTDIR QTINC QTLIB
 
-if ! rpm -E %%cmake|grep -e 'cd build\|cd ${CMAKE_BUILD_DIR:-build}'; then
-  mkdir -p build
-  cd build
-fi
+mkdir -p build
+cd build
 
 %{suse_cmake} \
   -DCMAKE_BUILD_TYPE="RelWithDebInfo" \
