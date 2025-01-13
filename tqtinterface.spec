@@ -39,8 +39,7 @@ BuildRequires(pre): rpm-macros-suse-compat
 %endif
 
 Name:		tqtinterface-trinity
-Epoch:		14.1.3
-Version:	3.5.12
+Version:	14.1.3
 Release:	alt1
 Summary:	The Trinity Qt Interface Libraries
 Group:		Graphical desktop/Other
