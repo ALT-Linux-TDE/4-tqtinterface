@@ -1,2 +1,3 @@
+copy:import.info
 tar.gz: tqtinterface-trinity name=tqtinterface-trinity-14.1.3
 spec: tqtinterface.spec
