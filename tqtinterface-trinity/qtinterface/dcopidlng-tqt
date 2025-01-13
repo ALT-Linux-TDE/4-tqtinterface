@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [[ $1 == "" ]]; then
+	echo "Usage: dcopidlng-tqt <dcopidlng_binary> <options> <input_file>"
+else
+	cp -Rp ${BASH_ARGV[0]} ${BASH_ARGV[0]}.bkp
+#	tqt-replace ${BASH_ARGV[0]}
+	$@
+	cp -Rp ${BASH_ARGV[0]}.bkp ${BASH_ARGV[0]}
+	rm -f ${BASH_ARGV[0]}.bkp
+fi

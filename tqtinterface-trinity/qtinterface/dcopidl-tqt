@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [[ $1 == "" ]]; then
+	echo "Usage: dcopidl-tqt <dcopidl_binary> <input_file>"
+else
+	cp -Rp $2 $2.bkp
+#	tqt-replace $2
+	$1 $2
+	cp -Rp $2.bkp $2
+	rm -f $2.bkp
+fi

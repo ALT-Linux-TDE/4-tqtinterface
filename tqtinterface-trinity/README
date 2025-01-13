@@ -1,0 +1,139 @@
+In this file:
+
+* About tqtinterface
+* Licensing
+* Common Mistakes
+* Upgrading
+* Compile Problems
+* More Info
+
+
+About tqtinterface
+-------------
+This is version 3.5.12 of the Trinity Qt Interface
+
+This package includes libraries that abstract the underlying Qt system from
+the actual Trinity code, allowing easy, complete upgrades to new versions of Qt.
+
+It also contains various functions that have been removed from newer versions of Qt,
+but are completely portable and isolated from other APIs such as Xorg.  This allows
+the Trinity project to efficiently perform certain operations that are infeasible
+or unneccessarily difficult when using pure Qt4 or above.
+
+* qtinterface
+    The man Qt interface library.  Any Qt functions you wish to use
+    need to be prefixed with a T.  For example, QTimer becomes TQTimer.
+    We will handle all required Qt calls.  Do not touch your television.
+    We will adjust it for you. ;-)
+
+
+Licensing
+---------
+The libraries themselves have been covered (since Tuesday, June 29, 2010)
+by the GNU General Public License (GPL). Any other programs (such
+as the examples) are covered by the GNU General Public License (GPL). All
+the gory details for the LGPL reside in COPYING.LIB, and for the GPL reside
+in COPYING.
+
+When in doubt, check the individual file, they should all have license
+headings and other identifying marks.
+
+
+Common Mistakes
+---------------
+If configure claims Qt cannot be found, look at http://www.trolltech.com
+to get a copy of Qt, version 3.3.0 or newer. If you have peeked there
+already, grab the SVN module qt-copy from anonsvn.kde.org, or a snapshot
+thereof.  Alternatively the svn module qt-copy from svn.kde.org can also be
+used.
+
+
+Debugging
+---------
+You can use --enable-debug with the configure script, if you want to have
+debug code in your Trinity libs. If you have the space and can stand code that's
+somewhat slower, this is worth it. The extra information really
+helps debugging and thus bugfixing.
+
+On the other hand, --disable-debug removes all debug messages, leading
+to a faster and cleaner desktop.
+
+See also the file DEBUG.
+
+
+Compile Problems
+----------------
+Often, Trinity compile failures are not Trinity's fault but the one of the
+compiler or the distribution used. For that reason, please have a look at
+http://developer.kde.org/build/compilationfaq.html for known issues in certain OS
+environments before reporting bugs or going mad :). 
+
+gcc 3.0/3.0.1 is not yet able to compile all of Trinity without errors, mostly 
+due to bugs in this version of the compiler. Some older version of gcc 2.96
+also have problems compiling Trinity due to compiler bugs. Even though 
+compilation may not report errors with these compiler, the usage of these
+compilers may cause crashes when using the resulting executables.
+
+If you are running a FreeBSD system, you will need to make sure that LIBS
+is set to "-Wl,-export-dynamic". The easiest way to do this is to prefix
+configure with it, i.e.: LIBS="-Wl,-export-dynamic" ./configure. Thanks to
+Will Andrews <will@FreeBSD.org> and Arun Sharma <adsharma@sharmas.dhs.org>
+for identifying what needed to be done, and how to do it, and such.
+
+If you get odd error such as:
+
+as: Error: /var/tmp/ccK1Cfxa.s, line 2827: Truncating token:
+__t4pair2Zt18__rb_tree_iterator3Zt4pair2ZCt12basic_string3ZcZt18string_char_trai
+ts1ZcZt24__default_alloc_template2b0i0Zt12basic_string3ZcZt18string_char_traits1
+ZcZt24__default_alloc_template2b0i0ZRt4pair2ZCt12basic_string3ZcZt18string_char_
+traits1ZcZt24__default_alloc_template2b0i0Zt12basic_string3ZcZt18string_char_tra
+its1ZcZt24__default_alloc_template2b0i0ZPt4pair2ZCt12basic_string3ZcZt18string_c
+har_traits1ZcZt24__default_alloc_template2b0i0Zt12basic_string3ZcZt18string_char
+_traits1ZcZt24__default_alloc_template2b0i0ZbRCt18__rb_tree_iterator3Zt4pair2ZCt
+12basic_string3ZcZt18string_char_traits1ZcZt24__default_alloc_template2b0i0Zt12b
+asic_string3ZcZt18string_char_traits1ZcZt24__default_alloc_template2b0i0ZRt4pair
+2ZCt12basic_string3ZcZt18string_char_traits1ZcZt24__default_alloc_template2b0i0Z
+t12basic_string3ZcZt18string_char_traits1ZcZt24__default_alloc_template2b0i0ZPt4
+pair2ZCt12basic_string3ZcZt18string_char_traits1ZcZt24__default_alloc_template2b
+0i0Zt12basic_string3ZcZt18strin!
+g_char_traits1ZcZt24__default_al
+
+and you're using egcs, try re-compiling all your C++ libs with -fsquangle,
+and then recompiling whatever you were working on with -fsquangle. It
+should help, and more information about this is available on the egcs FAQ
+available at http://egcs.cygnus.com
+
+
+How to report
+-------------
+Reporting bugs is an art. Why?  Because bug reports can help and hinder.
+
+They hinder if the developers are just buried in an avalanche of bug reports.
+They spend hours figuring out which bug reports are valid and which aren't,
+which bug reports are due to bugs or due to installation problems.
+
+They can be of tremendous help to notify developers on problems in areas that
+they normally don't have access (e.g. Trinity on AIX) to.
+
+So, here are some tips on bug reporting:
+
+* make sure your bug is due to Trinity ... and not due to a packaging problem of
+  your Linux distributor. For example, most "I can not install the XYZ.rpm"
+  problem are due to packaging issues. Refer with such questions to your
+  Linux Distributor and his appropriate mailing list or bug reporting tool.
+
+* The chance is high that your bug has already been dealt with ... so look
+  if there is a newer version of tqtinterface available. Reporting bugs for
+  older, deprecated versions usually don't get that much attention :-)
+
+* Also the chance is high that another one experienced your problem. The
+  bug report wizard at http://bugs.trinitydesktop.org will help you to
+  find out if your problem has already been reported.
+
+* The best bug report for a project based on voluntary work is of course one
+  that comes with a patch that solves the problem. :-)
+
+
+More info
+---------
+http://www.trinitydesktop.org

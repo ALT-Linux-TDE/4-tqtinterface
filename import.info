@@ -1,0 +1,7 @@
+EVR: trinity-tqtinterface = 2:4.2.0-14.1.3_1.oss156
+Name: trinity-tqtinterface
+Version: 4.2.0
+Release: 14.1.2_1
+Epoch: 2
+srpm: trinity-tqtinterface-4.2.0-14.1.3_1.oss156.src.rpm
+%changelog

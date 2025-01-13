@@ -1,0 +1,60 @@
+qaccessible
+
+
+
+
+All headers that contain the keywork TQ_OBJECT have been ported,
+exept for these due to *@#$ private functions
+
+qclipboard
+qcolordialog
+qdragobject (QDragManager)
+qfontdialog
+qguardedptr (TQGuardedPtr, weird compilation failure)
+qinputdialog
+qnetworkprotocol (QNetworkProtocolFactory, weird compilation failure)
+qsessionmanager
+qtranslator (TQT_NO_TRANSLATION is set, MOC does not honor #ifdef)
+qwidgetplugin (TQWidgetContainerPlugin, weird compilation failure)
+
+
+
+And these that do not contain TQ_OBJECT are failing:
+
+qasciicache
+qasciidict
+qcache
+qcleanuphandler
+qdeepcopy
+qdict
+qintcache
+qintdict
+qmap
+qmemarray
+qptrdict
+qptrlist
+qptrqueue
+qsortedlist
+qsqlpropertymap
+qsqlselectcursor
+qthreadstorage
+qtl
+qvaluelist
+qvaluestack
+
+This may have something to do with the template class junk
+
+Weird headers with no classes (???):
+
+tqdrawutil
+
+
+
+
+Here's the latest proposed structure of the library...
+
+All of Trinity now uses TQ<something>, e.g. QTimer is now TQTimer.  Depending on the QT3 or QT4 flag, certain defines are set in tqt.h like the following:
+#define TQCString QCString (for Qt3)
+#define TQCString Q3CString (for Qt4)
+
+If needed, the TQ function can subclass the Q or Q3 function and reimplement the missing features.  However, the vast majority of classes (those that have not changed much) will be handled with the simple #define statements, greatly simplifying and speeding implementation.

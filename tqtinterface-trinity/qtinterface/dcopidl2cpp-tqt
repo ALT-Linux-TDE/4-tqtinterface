@@ -1,0 +1,28 @@
+#!/bin/bash
+
+if [[ $1 == "" ]]; then
+	echo "Usage: dcopidl2cpp-tqt <dcopidl2cpp_binary> <options> <input_kidl_file>"
+else
+	# This is more complicated than the others, as the kidl file must be parsed and the input files extracted
+
+	# Extract the source working directory and all input files
+	INPUT_FILES=$(cat ${BASH_ARGV[0]} | grep "<SOURCE>" | sed 's/<SOURCE>//g' | sed 's/<\/SOURCE>//g' | xargs)
+	INPUT_DIR=${INPUT_FILES%/*}
+
+	# Redirect all input files
+	for curfile in $INPUT_FILES
+	do
+		cp -Rp "$curfile" "$curfile.bkp"
+#		tqt-replace "$curfile"
+	done
+
+	# Execute the dcopidl2cpp command
+	$@
+
+	# Undo input file redirection
+	for curfile in $INPUT_FILES
+	do
+		cp -Rp "$curfile.bkp" "$curfile"
+		rm -f "$curfile.bkp"
+	done
+fi
