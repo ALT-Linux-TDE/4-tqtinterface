@@ -145,9 +145,6 @@ although some code has been added for useful functions that are no longer part o
 %build
 unset QTDIR QTINC QTLIB
 
-mkdir -p build
-cd build
-
 %{suse_cmake} \
   -DCMAKE_BUILD_TYPE="RelWithDebInfo" \
   -DCMAKE_C_FLAGS="${RPM_OPT_FLAGS}" \
