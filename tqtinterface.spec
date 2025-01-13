@@ -54,7 +54,7 @@ Source0:	%{name}-%{tde_version}%{?preversion:~%{preversion}}.tar.gz
 
 BuildRequires:	libtqt3-mt-devel >= 3.5.0
 BuildRequires:	tqt3-dev-tools >= 3.5.0
-BuildRequires:	trinity-tde-cmake >= 14.1.3
+BuildRequires:	cmake-trinity >= 14.1.3
 
 BuildRequires:	gcc-c++
 
