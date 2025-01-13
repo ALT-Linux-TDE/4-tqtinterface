@@ -33,9 +33,9 @@ BuildRequires(pre): rpm-macros-suse-compat
 %define tde_pkg tqtinterface
 
 %if 0%{?mdkversion} || 0%{?mgaversion} || 0%{?pclinuxos}
-%define libtqt3 %{_lib}tqt3
+%define libtqt4 %{_lib}tqt4
 %else
-%define libtqt3 libtqt3
+%define libtqt4 libtqt4
 %endif
 
 Name:		tqtinterface-trinity
