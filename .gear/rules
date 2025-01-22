@@ -1,3 +1,3 @@
 copy:import.info
-tar.gz: tde-tqtinterface-trinity name=tde-tqtinterface-14.1.3
+tar.gz: tde-tqtinterface name=tde-tqtinterface-14.1.3
 spec: tqtinterface.spec
