@@ -108,7 +108,7 @@ Provides:	libtqt4-devel = %{?epoch:%{epoch}:}%{version}-%{release}
 
 Requires:	%{libtqt4} = %{?epoch:%{epoch}:}%{version}-%{release}
 Requires:	tqt3-dev-tools >= 3.5.0
-Requires:	e-cmake >= %{version}-%{release}
+Requires:	tde-cmake >= %{version}-%{release}
 
 Obsoletes:	tde-tqtinterface-devel < %{?epoch:%{epoch}:}%{version}-%{release}
 Provides:	tde-tqtinterface-devel = %{?epoch:%{epoch}:}%{version}-%{release}
