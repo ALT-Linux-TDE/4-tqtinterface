@@ -38,7 +38,7 @@ BuildRequires(pre): rpm-macros-suse-compat
 %define libtqt4 libtqt4
 %endif
 
-Name:		tqtinterface-trinity
+Name:		tde-tqtinterface
 Version:	14.1.3
 Release:	alt1
 Summary:	The Trinity Qt Interface Libraries
@@ -54,7 +54,7 @@ Source0:	%{name}-%{tde_version}%{?preversion:~%{preversion}}.tar.gz
 
 BuildRequires:	libtqt3-mt-devel >= 3.5.0
 BuildRequires:	tqt3-dev-tools >= 3.5.0
-BuildRequires:	cmake-trinity >= 14.1.3
+BuildRequires:	tde-cmake >= 14.1.3
 
 BuildRequires:	gcc-c++
 
@@ -108,10 +108,10 @@ Provides:	libtqt4-devel = %{?epoch:%{epoch}:}%{version}-%{release}
 
 Requires:	%{libtqt4} = %{?epoch:%{epoch}:}%{version}-%{release}
 Requires:	tqt3-dev-tools >= 3.5.0
-Requires:	cmake-trinity >= %{version}-%{release}
+Requires:	e-cmake >= %{version}-%{release}
 
-Obsoletes:	trinity-tqtinterface-devel < %{?epoch:%{epoch}:}%{version}-%{release}
-Provides:	trinity-tqtinterface-devel = %{?epoch:%{epoch}:}%{version}-%{release}
+Obsoletes:	tde-tqtinterface-devel < %{?epoch:%{epoch}:}%{version}-%{release}
+Provides:	tde-tqtinterface-devel = %{?epoch:%{epoch}:}%{version}-%{release}
 
 %description -n %{libtqt4}-devel
 The Trinity Qt Interface is a library that abstracts Qt from Trinity.
